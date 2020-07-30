@@ -3,35 +3,35 @@ Print_Serial.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000006dc  00000000  00000000  00010000  2**2
+  0 .text         000006d0  00000000  00000000  00010000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .relocate     00000000  20000000  20000000  000106dc  2**0
+  1 .relocate     00000000  20000000  20000000  000106d0  2**0
                   CONTENTS
   2 .bss          00000028  20000000  20000000  00020000  2**2
                   ALLOC
   3 .stack        00002000  20000028  20000028  00020000  2**0
                   ALLOC
-  4 .ARM.attributes 00000028  00000000  00000000  000106dc  2**0
+  4 .ARM.attributes 00000028  00000000  00000000  000106d0  2**0
                   CONTENTS, READONLY
-  5 .comment      00000059  00000000  00000000  00010704  2**0
+  5 .comment      00000059  00000000  00000000  000106f8  2**0
                   CONTENTS, READONLY
-  6 .debug_info   0001240a  00000000  00000000  0001075d  2**0
+  6 .debug_info   00012436  00000000  00000000  00010751  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001833  00000000  00000000  00022b67  2**0
+  7 .debug_abbrev 00001833  00000000  00000000  00022b87  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00007b45  00000000  00000000  0002439a  2**0
+  8 .debug_loc    00007b51  00000000  00000000  000243ba  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 00000700  00000000  00000000  0002bedf  2**0
+  9 .debug_aranges 00000700  00000000  00000000  0002bf0b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 000009f0  00000000  00000000  0002c5df  2**0
+ 10 .debug_ranges 000009f0  00000000  00000000  0002c60b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  0000ee37  00000000  00000000  0002cfcf  2**0
+ 11 .debug_macro  0000ee37  00000000  00000000  0002cffb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   000088f3  00000000  00000000  0003be06  2**0
+ 12 .debug_line   000088f4  00000000  00000000  0003be32  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    0005150d  00000000  00000000  000446f9  2**0
+ 13 .debug_str    00051563  00000000  00000000  00044726  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00001218  00000000  00000000  00095c08  2**2
+ 14 .debug_frame  0000121c  00000000  00000000  00095c8c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,7 +65,7 @@ Disassembly of section .text:
   be:	bd10      	pop	{r4, pc}
   c0:	20000000 	.word	0x20000000
   c4:	00000000 	.word	0x00000000
-  c8:	000006dc 	.word	0x000006dc
+  c8:	000006d0 	.word	0x000006d0
 
 000000cc <frame_dummy>:
   cc:	4b08      	ldr	r3, [pc, #32]	; (f0 <frame_dummy+0x24>)
@@ -88,8 +88,8 @@ Disassembly of section .text:
   ee:	e7f9      	b.n	e4 <frame_dummy+0x18>
   f0:	00000000 	.word	0x00000000
   f4:	20000004 	.word	0x20000004
-  f8:	000006dc 	.word	0x000006dc
-  fc:	000006dc 	.word	0x000006dc
+  f8:	000006d0 	.word	0x000006d0
+  fc:	000006d0 	.word	0x000006d0
  100:	00000000 	.word	0x00000000
 
 00000104 <atmel_start_init>:
@@ -184,7 +184,7 @@ void Dummy_Handler(void)
  17a:	4798      	blx	r3
  17c:	e7fe      	b.n	17c <Reset_Handler+0x68>
  17e:	46c0      	nop			; (mov r8, r8)
- 180:	000006dc 	.word	0x000006dc
+ 180:	000006d0 	.word	0x000006d0
  184:	20000000 	.word	0x20000000
  188:	20000000 	.word	0x20000000
  18c:	20000004 	.word	0x20000004
@@ -193,8 +193,8 @@ void Dummy_Handler(void)
  198:	e000ed00 	.word	0xe000ed00
  19c:	00000000 	.word	0x00000000
  1a0:	41004000 	.word	0x41004000
- 1a4:	00000619 	.word	0x00000619
- 1a8:	00000605 	.word	0x00000605
+ 1a4:	0000060d 	.word	0x0000060d
+ 1a8:	000005cd 	.word	0x000005cd
 
 000001ac <USART_0_PORT_init>:
 #include <hpl_pm_base.h>
@@ -375,7 +375,7 @@ int32_t io_write(struct io_descriptor *const io_descr, const uint8_t *const buf,
  272:	bd70      	pop	{r4, r5, r6, pc}
  274:	2000      	movs	r0, #0
  276:	e7f3      	b.n	260 <io_write+0x14>
- 278:	00000660 	.word	0x00000660
+ 278:	00000654 	.word	0x00000654
  27c:	00000409 	.word	0x00000409
 
 00000280 <usart_sync_write>:
@@ -455,7 +455,7 @@ static int32_t usart_sync_write(struct io_descriptor *const io_descr, const uint
  2e2:	e7db      	b.n	29c <usart_sync_write+0x1c>
  2e4:	2000      	movs	r0, #0
  2e6:	e7d9      	b.n	29c <usart_sync_write+0x1c>
- 2e8:	00000674 	.word	0x00000674
+ 2e8:	00000668 	.word	0x00000668
  2ec:	00000409 	.word	0x00000409
  2f0:	00000557 	.word	0x00000557
  2f4:	00000547 	.word	0x00000547
@@ -528,7 +528,7 @@ static int32_t usart_sync_read(struct io_descriptor *const io_descr, uint8_t *co
  34e:	2000      	movs	r0, #0
  350:	e7e2      	b.n	318 <usart_sync_read+0x1c>
  352:	46c0      	nop			; (mov r8, r8)
- 354:	00000674 	.word	0x00000674
+ 354:	00000668 	.word	0x00000668
  358:	00000409 	.word	0x00000409
  35c:	0000056b 	.word	0x0000056b
  360:	0000054f 	.word	0x0000054f
@@ -569,7 +569,7 @@ static int32_t usart_sync_read(struct io_descriptor *const io_descr, uint8_t *co
  396:	2000      	movs	r0, #0
  398:	e7ed      	b.n	376 <usart_sync_init+0x12>
  39a:	46c0      	nop			; (mov r8, r8)
- 39c:	00000674 	.word	0x00000674
+ 39c:	00000668 	.word	0x00000668
  3a0:	00000409 	.word	0x00000409
  3a4:	00000509 	.word	0x00000509
  3a8:	000002fd 	.word	0x000002fd
@@ -596,7 +596,7 @@ static int32_t usart_sync_read(struct io_descriptor *const io_descr, uint8_t *co
  3ca:	2000      	movs	r0, #0
  3cc:	bd10      	pop	{r4, pc}
  3ce:	46c0      	nop			; (mov r8, r8)
- 3d0:	00000674 	.word	0x00000674
+ 3d0:	00000668 	.word	0x00000668
  3d4:	00000409 	.word	0x00000409
  3d8:	00000535 	.word	0x00000535
 
@@ -623,7 +623,7 @@ static int32_t usart_sync_read(struct io_descriptor *const io_descr, uint8_t *co
  3fa:	bd70      	pop	{r4, r5, r6, pc}
  3fc:	2000      	movs	r0, #0
  3fe:	e7f6      	b.n	3ee <usart_sync_get_io_descriptor+0x12>
- 400:	00000674 	.word	0x00000674
+ 400:	00000668 	.word	0x00000668
  404:	00000409 	.word	0x00000409
 
 00000408 <assert>:
@@ -885,7 +885,7 @@ static inline void hri_sercomusart_write_BAUD_reg(const void *const hw, hri_serc
  4ee:	46c0      	nop			; (mov r8, r8)
  4f0:	bdfff800 	.word	0xbdfff800
  4f4:	0000022a 	.word	0x0000022a
- 4f8:	00000690 	.word	0x00000690
+ 4f8:	00000684 	.word	0x00000684
  4fc:	00000409 	.word	0x00000409
  500:	40310004 	.word	0x40310004
  504:	ffffd8ad 	.word	0xffffd8ad
@@ -912,7 +912,7 @@ static inline void hri_sercomusart_write_BAUD_reg(const void *const hw, hri_serc
 }
  524:	bd70      	pop	{r4, r5, r6, pc}
  526:	46c0      	nop			; (mov r8, r8)
- 528:	00000690 	.word	0x00000690
+ 528:	00000684 	.word	0x00000684
  52c:	00000409 	.word	0x00000409
  530:	00000481 	.word	0x00000481
 
@@ -1084,136 +1084,124 @@ static inline void hri_sysctrl_write_OSC8M_reg(const void *const hw, hri_sysctrl
  5c6:	4770      	bx	lr
  5c8:	40000800 	.word	0x40000800
 
-000005cc <UART_EDBG_init>:
-#include <atmel_start.h>
-
-struct io_descriptor *uart_edbg_io; //making the io struct global
-
-void UART_EDBG_init(void)
-{
- 5cc:	b510      	push	{r4, lr}
- 5ce:	b082      	sub	sp, #8
-	struct io_descriptor *uart_edbg_io;
-	usart_sync_get_io_descriptor(&USART_0, &uart_edbg_io);
- 5d0:	4c07      	ldr	r4, [pc, #28]	; (5f0 <UART_EDBG_init+0x24>)
- 5d2:	a901      	add	r1, sp, #4
- 5d4:	0020      	movs	r0, r4
- 5d6:	4b07      	ldr	r3, [pc, #28]	; (5f4 <UART_EDBG_init+0x28>)
- 5d8:	4798      	blx	r3
-	usart_sync_enable(&USART_0);
- 5da:	0020      	movs	r0, r4
- 5dc:	4b06      	ldr	r3, [pc, #24]	; (5f8 <UART_EDBG_init+0x2c>)
- 5de:	4798      	blx	r3
-
-	io_write(uart_edbg_io, (uint8_t *)"Hello World!\n", 14);
- 5e0:	220e      	movs	r2, #14
- 5e2:	4906      	ldr	r1, [pc, #24]	; (5fc <UART_EDBG_init+0x30>)
- 5e4:	9801      	ldr	r0, [sp, #4]
- 5e6:	4b06      	ldr	r3, [pc, #24]	; (600 <UART_EDBG_init+0x34>)
- 5e8:	4798      	blx	r3
+000005cc <main>:
+	//io_write(uart_edbg_io, (uint8_t *)"Hello World!\n", 14);
+	//io_write(uart_edbg_io, (uint8_t *)"Hello WORLS!\n", 14);
 }
- 5ea:	b002      	add	sp, #8
- 5ec:	bd10      	pop	{r4, pc}
- 5ee:	46c0      	nop			; (mov r8, r8)
- 5f0:	2000001c 	.word	0x2000001c
- 5f4:	000003dd 	.word	0x000003dd
- 5f8:	000003b1 	.word	0x000003b1
- 5fc:	000006ac 	.word	0x000006ac
- 600:	0000024d 	.word	0x0000024d
-
-00000604 <main>:
 
 int main(void)
 {
- 604:	b510      	push	{r4, lr}
+ 5cc:	b530      	push	{r4, r5, lr}
+ 5ce:	b083      	sub	sp, #12
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
- 606:	4b02      	ldr	r3, [pc, #8]	; (610 <main+0xc>)
- 608:	4798      	blx	r3
-
+ 5d0:	4b08      	ldr	r3, [pc, #32]	; (5f4 <main+0x28>)
+ 5d2:	4798      	blx	r3
+	
+	struct io_descriptor *uart_edbg_io;
+	usart_sync_get_io_descriptor(&USART_0, &uart_edbg_io);
+ 5d4:	4c08      	ldr	r4, [pc, #32]	; (5f8 <main+0x2c>)
+ 5d6:	a901      	add	r1, sp, #4
+ 5d8:	0020      	movs	r0, r4
+ 5da:	4b08      	ldr	r3, [pc, #32]	; (5fc <main+0x30>)
+ 5dc:	4798      	blx	r3
+	usart_sync_enable(&USART_0);
+ 5de:	0020      	movs	r0, r4
+ 5e0:	4b07      	ldr	r3, [pc, #28]	; (600 <main+0x34>)
+ 5e2:	4798      	blx	r3
+	
 	/* Replace with your application code */
 	while (1) {
-		UART_EDBG_init();
- 60a:	4c02      	ldr	r4, [pc, #8]	; (614 <main+0x10>)
- 60c:	47a0      	blx	r4
- 60e:	e7fd      	b.n	60c <main+0x8>
- 610:	00000105 	.word	0x00000105
- 614:	000005cd 	.word	0x000005cd
+		io_write(uart_edbg_io, (uint8_t *)"Hello WORLS!\n", 14);
+ 5e4:	4d07      	ldr	r5, [pc, #28]	; (604 <main+0x38>)
+ 5e6:	4c08      	ldr	r4, [pc, #32]	; (608 <main+0x3c>)
+ 5e8:	220e      	movs	r2, #14
+ 5ea:	0029      	movs	r1, r5
+ 5ec:	9801      	ldr	r0, [sp, #4]
+ 5ee:	47a0      	blx	r4
+ 5f0:	e7fa      	b.n	5e8 <main+0x1c>
+ 5f2:	46c0      	nop			; (mov r8, r8)
+ 5f4:	00000105 	.word	0x00000105
+ 5f8:	2000001c 	.word	0x2000001c
+ 5fc:	000003dd 	.word	0x000003dd
+ 600:	000003b1 	.word	0x000003b1
+ 604:	000006a0 	.word	0x000006a0
+ 608:	0000024d 	.word	0x0000024d
 
-00000618 <__libc_init_array>:
- 618:	b570      	push	{r4, r5, r6, lr}
- 61a:	2600      	movs	r6, #0
- 61c:	4d0c      	ldr	r5, [pc, #48]	; (650 <__libc_init_array+0x38>)
- 61e:	4c0d      	ldr	r4, [pc, #52]	; (654 <__libc_init_array+0x3c>)
- 620:	1b64      	subs	r4, r4, r5
- 622:	10a4      	asrs	r4, r4, #2
- 624:	42a6      	cmp	r6, r4
- 626:	d109      	bne.n	63c <__libc_init_array+0x24>
- 628:	2600      	movs	r6, #0
- 62a:	f000 f847 	bl	6bc <_init>
- 62e:	4d0a      	ldr	r5, [pc, #40]	; (658 <__libc_init_array+0x40>)
- 630:	4c0a      	ldr	r4, [pc, #40]	; (65c <__libc_init_array+0x44>)
- 632:	1b64      	subs	r4, r4, r5
- 634:	10a4      	asrs	r4, r4, #2
- 636:	42a6      	cmp	r6, r4
- 638:	d105      	bne.n	646 <__libc_init_array+0x2e>
- 63a:	bd70      	pop	{r4, r5, r6, pc}
- 63c:	00b3      	lsls	r3, r6, #2
- 63e:	58eb      	ldr	r3, [r5, r3]
- 640:	4798      	blx	r3
- 642:	3601      	adds	r6, #1
- 644:	e7ee      	b.n	624 <__libc_init_array+0xc>
- 646:	00b3      	lsls	r3, r6, #2
- 648:	58eb      	ldr	r3, [r5, r3]
- 64a:	4798      	blx	r3
- 64c:	3601      	adds	r6, #1
- 64e:	e7f2      	b.n	636 <__libc_init_array+0x1e>
- 650:	000006c8 	.word	0x000006c8
- 654:	000006c8 	.word	0x000006c8
- 658:	000006c8 	.word	0x000006c8
- 65c:	000006cc 	.word	0x000006cc
- 660:	682f2e2e 	.word	0x682f2e2e
- 664:	732f6c61 	.word	0x732f6c61
- 668:	682f6372 	.word	0x682f6372
- 66c:	695f6c61 	.word	0x695f6c61
- 670:	00632e6f 	.word	0x00632e6f
- 674:	682f2e2e 	.word	0x682f2e2e
- 678:	732f6c61 	.word	0x732f6c61
- 67c:	682f6372 	.word	0x682f6372
- 680:	755f6c61 	.word	0x755f6c61
- 684:	74726173 	.word	0x74726173
- 688:	6e79735f 	.word	0x6e79735f
- 68c:	00632e63 	.word	0x00632e63
- 690:	682f2e2e 	.word	0x682f2e2e
- 694:	732f6c70 	.word	0x732f6c70
- 698:	6f637265 	.word	0x6f637265
- 69c:	70682f6d 	.word	0x70682f6d
- 6a0:	65735f6c 	.word	0x65735f6c
- 6a4:	6d6f6372 	.word	0x6d6f6372
- 6a8:	0000632e 	.word	0x0000632e
- 6ac:	6c6c6548 	.word	0x6c6c6548
- 6b0:	6f57206f 	.word	0x6f57206f
- 6b4:	21646c72 	.word	0x21646c72
- 6b8:	0000000a 	.word	0x0000000a
+0000060c <__libc_init_array>:
+ 60c:	b570      	push	{r4, r5, r6, lr}
+ 60e:	2600      	movs	r6, #0
+ 610:	4d0c      	ldr	r5, [pc, #48]	; (644 <__libc_init_array+0x38>)
+ 612:	4c0d      	ldr	r4, [pc, #52]	; (648 <__libc_init_array+0x3c>)
+ 614:	1b64      	subs	r4, r4, r5
+ 616:	10a4      	asrs	r4, r4, #2
+ 618:	42a6      	cmp	r6, r4
+ 61a:	d109      	bne.n	630 <__libc_init_array+0x24>
+ 61c:	2600      	movs	r6, #0
+ 61e:	f000 f847 	bl	6b0 <_init>
+ 622:	4d0a      	ldr	r5, [pc, #40]	; (64c <__libc_init_array+0x40>)
+ 624:	4c0a      	ldr	r4, [pc, #40]	; (650 <__libc_init_array+0x44>)
+ 626:	1b64      	subs	r4, r4, r5
+ 628:	10a4      	asrs	r4, r4, #2
+ 62a:	42a6      	cmp	r6, r4
+ 62c:	d105      	bne.n	63a <__libc_init_array+0x2e>
+ 62e:	bd70      	pop	{r4, r5, r6, pc}
+ 630:	00b3      	lsls	r3, r6, #2
+ 632:	58eb      	ldr	r3, [r5, r3]
+ 634:	4798      	blx	r3
+ 636:	3601      	adds	r6, #1
+ 638:	e7ee      	b.n	618 <__libc_init_array+0xc>
+ 63a:	00b3      	lsls	r3, r6, #2
+ 63c:	58eb      	ldr	r3, [r5, r3]
+ 63e:	4798      	blx	r3
+ 640:	3601      	adds	r6, #1
+ 642:	e7f2      	b.n	62a <__libc_init_array+0x1e>
+ 644:	000006bc 	.word	0x000006bc
+ 648:	000006bc 	.word	0x000006bc
+ 64c:	000006bc 	.word	0x000006bc
+ 650:	000006c0 	.word	0x000006c0
+ 654:	682f2e2e 	.word	0x682f2e2e
+ 658:	732f6c61 	.word	0x732f6c61
+ 65c:	682f6372 	.word	0x682f6372
+ 660:	695f6c61 	.word	0x695f6c61
+ 664:	00632e6f 	.word	0x00632e6f
+ 668:	682f2e2e 	.word	0x682f2e2e
+ 66c:	732f6c61 	.word	0x732f6c61
+ 670:	682f6372 	.word	0x682f6372
+ 674:	755f6c61 	.word	0x755f6c61
+ 678:	74726173 	.word	0x74726173
+ 67c:	6e79735f 	.word	0x6e79735f
+ 680:	00632e63 	.word	0x00632e63
+ 684:	682f2e2e 	.word	0x682f2e2e
+ 688:	732f6c70 	.word	0x732f6c70
+ 68c:	6f637265 	.word	0x6f637265
+ 690:	70682f6d 	.word	0x70682f6d
+ 694:	65735f6c 	.word	0x65735f6c
+ 698:	6d6f6372 	.word	0x6d6f6372
+ 69c:	0000632e 	.word	0x0000632e
+ 6a0:	6c6c6548 	.word	0x6c6c6548
+ 6a4:	4f57206f 	.word	0x4f57206f
+ 6a8:	21534c52 	.word	0x21534c52
+ 6ac:	0000000a 	.word	0x0000000a
 
-000006bc <_init>:
- 6bc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 6be:	46c0      	nop			; (mov r8, r8)
- 6c0:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 6c2:	bc08      	pop	{r3}
- 6c4:	469e      	mov	lr, r3
- 6c6:	4770      	bx	lr
+000006b0 <_init>:
+ 6b0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 6b2:	46c0      	nop			; (mov r8, r8)
+ 6b4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 6b6:	bc08      	pop	{r3}
+ 6b8:	469e      	mov	lr, r3
+ 6ba:	4770      	bx	lr
 
-000006c8 <__init_array_start>:
- 6c8:	000000cd 	.word	0x000000cd
+000006bc <__init_array_start>:
+ 6bc:	000000cd 	.word	0x000000cd
 
-000006cc <_fini>:
- 6cc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 6ce:	46c0      	nop			; (mov r8, r8)
- 6d0:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 6d2:	bc08      	pop	{r3}
- 6d4:	469e      	mov	lr, r3
- 6d6:	4770      	bx	lr
+000006c0 <_fini>:
+ 6c0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 6c2:	46c0      	nop			; (mov r8, r8)
+ 6c4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 6c6:	bc08      	pop	{r3}
+ 6c8:	469e      	mov	lr, r3
+ 6ca:	4770      	bx	lr
 
-000006d8 <__fini_array_start>:
- 6d8:	000000a5 	.word	0x000000a5
+000006cc <__fini_array_start>:
+ 6cc:	000000a5 	.word	0x000000a5
